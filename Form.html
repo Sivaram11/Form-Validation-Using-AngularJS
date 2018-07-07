@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
+		<script src="C:\BootStrap Practice\form.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="Control">
+		<h2 style="text-align:center"> Registration Form </h2>
+		<div class="container">	
+				<form name="Validationform" class="form-horizontal" ng-model="Capture">
+				<span ng-if="Validationform.fname.$touched && Validationform.fname.$error.required"> FirstName field needs to be filled out </span>	
+				<span ng-if="Validationform.fname.$touched && Validationform.fname.$invalid"> This field is invalid </span>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="fname"name="fname"> FirstName: </label>
+					<div class="col-sm-10">
+						<input type="text" ng-pattern="nameFormat" name="fname" ng-model="fname" class="form-control" id="fname" placeholder="Enter firstname" required>
+					</div>
+				</div>
+				<span ng-if="Validationform.lname.$touched && Validationform.lname.$error.required"> LastName field needs to be filled out </span>
+				<span ng-if="Validationform.lname.$touched && Validationform.lname.$invalid"> This field is invalid </span>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="lname"> LastName: </label>
+					<div class="col-sm-10">
+						<input type="text" ng-pattern="nameFormat" name="lname" ng-model="lname" class="form-control"	id="lname" placeholder="Enter lastname" required>
+					</div>
+				</div>
+				<span ng-if="Validationform.addr1.$touched && Validationform.addr1.$error.required"> Address needs to be filled out </span>
+				<span ng-if="Validationform.addr1.$touched && Validationform.addr1.$invalid"> This field is invalid </span>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="address"> AddressLine1: </label>
+					<div class="col-sm-10">
+						<input type="text" name="addr1" ng-pattern="nameFormat" ng-model="addr1" class="form-control"	id="address" placeholder="Enter Address">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="addres"> AddressLine2: </label>
+					<div class="col-sm-10">
+						<input type="text" name="addr2" class="form-control" ng-pattern="nameFormat"	id="addres" placeholder="Enter the remaining Address here">
+					</div>
+				</div>
+				<span ng-if="Validationform.state.$touched && Validationform.state.$error.required"> State field needs to be filled out </span>
+				<span ng-if="Validationform.state.$touched && Validationform.state.$invalid"> This field is invalid </span>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="state"> State: </label>
+					<div class="col-sm-10">
+						<input type="text" name="state" ng-model="state" class="form-control" ng-pattern="nameFormat"	id="state" placeholder="Enter the State">
+					</div>
+				</div>
+				<span ng-if="Validationform.zipcode.$touched && Validationform.zipcode.$error.required"> ZipCode field needs to be filled out & should enter a valid entry</span>
+				<span ng-if="Validationform.zipcode.$touched && Validationform.zipcode.$invalid"> This field is invalid </span>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="zip"> ZipCode: </label>
+					<div class="col-sm-10">
+						<input type="number" ng-pattern="numberPattern" name="zipcode"  class="form-control" ng-model="zipcode"	id="zip" placeholder="Enter the ZipCode">
+					</div>
+				</div>
+				<span ng-if="Validationform.email.$touched && Validationform.email.$error.required"> Email field needs to be filled out & should be a valid entry </span>
+				<p ng-if="Validationform.email.$touched && Validationform.email.$invalid"> This field is invalid </p>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="mail"> Email: </label>
+					<div class="col-sm-10">
+						<input type="email" ng-pattern="emailFormat" name="email" ng-model="email" class="form-control" id="mail" placeholder="Enter Email">
+					</div>
+				</div>
+				<span ng-if="Validationform.number.$touched && Validationform.number.$error.required"> MobileNumber field needs to be filled out & should enter a valid entry</span>
+				<p ng-if="Validationform.number.$touched && Validationform.number.$invalid"> This field is invalid </p>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="num"> MobileNumber: </label>
+					<div class="col-sm-10">
+						<input type="tel" name="number" ng-pattern="mobileFormat"  class="form-control" ng-model="number"	id="num" placeholder="Enter the MobileNumber">
+					</div>
+				</div>
+				<div class="Checkbox">
+					<label for="rm"> Remember me</label>
+					<input type="checkbox" id="rm" name="remember">
+				</div>
+				 <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>	
+	</body>
+</html>
